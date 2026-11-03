@@ -56,15 +56,24 @@ export function Navbar({ onOpenBooking, onOpenConcierge }: NavbarProps) {
     onOpenBooking();
   };
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll when mobile menu is open & auto-close on resize to desktop
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
+
+    const handleResize = () => {
+      if (window.innerWidth > 860) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
     return () => {
       document.body.style.overflow = '';
+      window.removeEventListener('resize', handleResize);
     };
   }, [isMobileMenuOpen]);
 

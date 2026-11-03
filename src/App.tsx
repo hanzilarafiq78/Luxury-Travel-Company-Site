@@ -108,6 +108,7 @@ function App() {
         {/* ACT 0: Full-Bleed Sunlit Landscape Video Hero */}
         <HeroVideoSection
           onExplore={scrollToFrontiers}
+          isLoaded={isLoaded}
         />
 
         {/* ACT I: The Manifesto (Bright Sunlit Alabaster Travertine) */}

@@ -14,9 +14,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface HeroVideoSectionProps {
   onExplore: () => void;
+  isLoaded?: boolean;
 }
 
-export function HeroVideoSection({ onExplore }: HeroVideoSectionProps) {
+export function HeroVideoSection({ onExplore, isLoaded }: HeroVideoSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -108,6 +109,33 @@ export function HeroVideoSection({ onExplore }: HeroVideoSectionProps) {
       ctx?.revert();
     };
   }, []);
+
+  // Entrance reveal: Headline and scroll cue rise into place once preloader curtains open
+  useEffect(() => {
+    if (!isLoaded) return;
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ['.headline-line-white', '.headline-line-gold', '.hero-exact-bottom-right'],
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.8,
+          stagger: 0.22,
+          ease: 'power3.out',
+          delay: 0.25,
+        }
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, [isLoaded]);
 
   return (
     <section ref={sectionRef} className="hero-exact-section">

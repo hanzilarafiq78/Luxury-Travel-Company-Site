@@ -433,6 +433,12 @@
 }
 
 /* ── Responsive Viewport Rules ── */
+@media (min-width: 861px) {
+  .navbar-mobile-overlay {
+    display: none !important;
+  }
+}
+
 @media (max-width: 860px) {
   .navbar-nav-exact {
     display: none;
