@@ -116,7 +116,7 @@
   border: none;
   box-shadow: none;
   opacity: 0.35;
-  transition: 
+  transition:
     opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
