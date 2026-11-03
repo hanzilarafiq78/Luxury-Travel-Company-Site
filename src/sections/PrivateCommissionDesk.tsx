@@ -47,27 +47,84 @@ export function PrivateCommissionDesk({
         );
       }
 
-      // 2. Editorial text elements rise in place: slow, silky, understated
+      // 2. Editorial text elements rise in place: decoupled, slow, silky, understated
       if (contentRef.current) {
-        const textElements = contentRef.current.querySelectorAll(
-          '.desk-eyebrow, .desk-headline, .desk-subtext, .desk-cta-wrap'
-        );
-        gsap.fromTo(
-          textElements,
-          { y: 24, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.6,
-            stagger: 0.16,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: contentRef.current,
-              start: 'top 82%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
+        const eyebrow = contentRef.current.querySelector('.desk-eyebrow');
+        const headline = contentRef.current.querySelector('.desk-headline');
+        const subtext = contentRef.current.querySelector('.desk-subtext');
+        const ctaWrap = contentRef.current.querySelector('.desk-cta-wrap');
+
+        if (eyebrow) {
+          gsap.fromTo(
+            eyebrow,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.4,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: contentRef.current,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        if (headline) {
+          gsap.fromTo(
+            headline,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.6,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: contentRef.current,
+                start: 'top 87%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        if (subtext) {
+          gsap.fromTo(
+            subtext,
+            { y: 35, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: contentRef.current,
+                start: 'top 84%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        if (ctaWrap) {
+          gsap.fromTo(
+            ctaWrap,
+            { y: 35, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: contentRef.current,
+                start: 'top 81%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
       }
     }, section);
 

@@ -21,67 +21,109 @@ export function ManifestoSection() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      // 1. Text elements rise in place with subtle stagger (Award-Winning Style)
+      // Decoupled, independent scroll triggers: each element rises in place on scroll
+      // and sinks back down gracefully when scrolling up (Award-Winning Style)
       const eyebrow = section.querySelector('.manifesto-eyebrow-row');
-      const quoteLines = section.querySelectorAll('.quote-line-dark, .quote-line-gold');
+      const quoteDark = section.querySelector('.quote-line-dark');
+      const quoteGold = section.querySelector('.quote-line-gold');
       const leadParagraph = section.querySelector('.manifesto-lead-paragraph');
       const ctaRow = section.querySelector('.manifesto-cta-row');
 
-      const textTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: textRef.current,
-          start: 'top 82%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-
       if (eyebrow) {
-        textTl.fromTo(
+        gsap.fromTo(
           eyebrow,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' },
-          0
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: eyebrow,
+              start: 'top 92%',
+              toggleActions: 'play none none reverse',
+            },
+          }
         );
       }
 
-      if (quoteLines.length > 0) {
-        textTl.fromTo(
-          quoteLines,
-          { opacity: 0, y: 26 },
+      if (quoteDark) {
+        gsap.fromTo(
+          quoteDark,
+          { opacity: 0, y: 48 },
           {
             opacity: 1,
             y: 0,
             duration: 1.6,
-            stagger: 0.18,
-            ease: 'power2.out',
-          },
-          0.12
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: quoteDark,
+              start: 'top 90%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      if (quoteGold) {
+        gsap.fromTo(
+          quoteGold,
+          { opacity: 0, y: 48 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.6,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: quoteGold,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
         );
       }
 
       if (leadParagraph) {
-        textTl.fromTo(
+        gsap.fromTo(
           leadParagraph,
-          { opacity: 0, y: 22 },
-          { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' },
-          0.38
+          { opacity: 0, y: 36 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: leadParagraph,
+              start: 'top 86%',
+              toggleActions: 'play none none reverse',
+            },
+          }
         );
       }
 
       if (ctaRow) {
-        textTl.fromTo(
+        gsap.fromTo(
           ctaRow,
-          { opacity: 0, y: 18 },
-          { opacity: 1, y: 0, duration: 1.4, ease: 'power2.out' },
-          0.52
+          { opacity: 0, y: 32 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: ctaRow,
+              start: 'top 84%',
+              toggleActions: 'play none none reverse',
+            },
+          }
         );
       }
 
-      // 2. Dual photos reveal: slow, silky rise in place with subtle scale
+      // Dual photos reveal: individual rise in place with subtle scale
       if (cliffRef.current) {
         gsap.fromTo(
           cliffRef.current,
-          { opacity: 0, y: 32, scale: 0.98 },
+          { opacity: 0, y: 55, scale: 0.96 },
           {
             opacity: 1,
             y: 0,
@@ -90,7 +132,7 @@ export function ManifestoSection() {
             ease: 'power2.out',
             scrollTrigger: {
               trigger: cliffRef.current,
-              start: 'top 85%',
+              start: 'top 88%',
               toggleActions: 'play none none reverse',
             },
           }
@@ -100,13 +142,12 @@ export function ManifestoSection() {
       if (sunsetRef.current) {
         gsap.fromTo(
           sunsetRef.current,
-          { opacity: 0, y: 36, scale: 0.98 },
+          { opacity: 0, y: 60, scale: 0.96 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
             duration: 1.8,
-            delay: 0.22,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: sunsetRef.current,

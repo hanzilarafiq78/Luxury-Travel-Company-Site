@@ -57,64 +57,108 @@ export function PillarsSection() {
       // 1. Title rises in place on scroll with slow, smooth ease; disappears on scroll-up
       if (headerRef.current) {
         const titleEl = headerRef.current.querySelector('.pillars-title');
-        gsap.fromTo(
-          titleEl || headerRef.current,
-          { y: 26, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: 'top 82%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-      }
-
-      // 2. Architectural rows rise in place on scroll with graceful stagger; disappear on scroll-up
-      const rows = container.querySelectorAll<HTMLElement>('.standard-horizontal-row');
-      rows.forEach((row) => {
-        const hairline = row.querySelector('.row-hairline');
-        const innerCols = row.querySelectorAll('.row-col-index, .row-col-title, .row-col-narrative');
-
-        // Hairline fades in cleanly
-        if (hairline) {
+        if (titleEl) {
           gsap.fromTo(
-            hairline,
-            { opacity: 0 },
+            titleEl,
+            { y: 45, opacity: 0 },
             {
+              y: 0,
               opacity: 1,
-              duration: 1.4,
-              ease: 'power2.out',
+              duration: 1.6,
+              ease: 'power3.out',
               scrollTrigger: {
-                trigger: row,
+                trigger: headerRef.current,
                 start: 'top 88%',
                 toggleActions: 'play none none reverse',
               },
             }
           );
         }
+      }
 
-        // Editorial columns rise gracefully in place from disappeared state
-        gsap.fromTo(
-          innerCols,
-          { y: 24, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            stagger: 0.12,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: row,
-              start: 'top 88%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
+      // 2. Architectural rows rise in place on scroll with decoupled column reveals; disappear on scroll-up
+      const rows = container.querySelectorAll<HTMLElement>('.standard-horizontal-row');
+      rows.forEach((row) => {
+        const hairline = row.querySelector('.row-hairline');
+        const colIndex = row.querySelector('.row-col-index');
+        const colTitle = row.querySelector('.row-col-title');
+        const colNarrative = row.querySelector('.row-col-narrative');
+
+        // Hairline expands in cleanly
+        if (hairline) {
+          gsap.fromTo(
+            hairline,
+            { opacity: 0, scaleX: 0.8 },
+            {
+              opacity: 1,
+              scaleX: 1,
+              duration: 1.4,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: row,
+                start: 'top 92%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        // Column 1: Index Number & Metric tag
+        if (colIndex) {
+          gsap.fromTo(
+            colIndex,
+            { y: 35, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: row,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        // Column 2: Title & Subtitle
+        if (colTitle) {
+          gsap.fromTo(
+            colTitle,
+            { y: 45, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.6,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: row,
+                start: 'top 87%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        // Column 3: Narrative Statement
+        if (colNarrative) {
+          gsap.fromTo(
+            colNarrative,
+            { y: 36, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: row,
+                start: 'top 84%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
       });
     }, container);
 

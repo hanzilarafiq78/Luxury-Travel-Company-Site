@@ -26,23 +26,63 @@ export function Footer() {
     if (!footer) return;
 
     const ctx = gsap.context(() => {
-      const elements = footer.querySelectorAll('.footer__brand, .footer__nav-group, .footer__bottom');
-      gsap.fromTo(
-        elements,
-        { y: 22, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.6,
-          stagger: 0.16,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: footer,
-            start: 'top 88%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
+      const brand = footer.querySelector('.footer__brand');
+      const navGroup = footer.querySelector('.footer__nav-group');
+      const bottom = footer.querySelector('.footer__bottom');
+
+      if (brand) {
+        gsap.fromTo(
+          brand,
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: footer,
+              start: 'top 92%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      if (navGroup) {
+        gsap.fromTo(
+          navGroup,
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: footer,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      if (bottom) {
+        gsap.fromTo(
+          bottom,
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.4,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: footer,
+              start: 'top 84%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
     }, footer);
 
     return () => ctx.revert();

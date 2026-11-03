@@ -72,21 +72,41 @@ export function AtelierProcess({ onOpenConcierge }: AtelierProcessProps) {
     if (!container) return;
 
     const ctx = gsap.context(() => {
-      // 1. Text reveal on section header: slow, silky rise in place
-      const headerEls = container.querySelectorAll('.atelier-eyebrow, .atelier-headline');
-      if (headerEls.length > 0) {
+      // 1. Decoupled text reveal on section header: slow, silky rise in place
+      const header = container.querySelector('.atelier-header');
+      const eyebrow = container.querySelector('.atelier-eyebrow');
+      const headline = container.querySelector('.atelier-headline');
+
+      if (eyebrow && header) {
         gsap.fromTo(
-          headerEls,
-          { y: 24, opacity: 0 },
+          eyebrow,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.4,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: header,
+              start: 'top 90%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      if (headline && header) {
+        gsap.fromTo(
+          headline,
+          { y: 45, opacity: 0 },
           {
             y: 0,
             opacity: 1,
             duration: 1.6,
-            stagger: 0.16,
-            ease: 'power2.out',
+            ease: 'power3.out',
             scrollTrigger: {
-              trigger: container.querySelector('.atelier-header'),
-              start: 'top 85%',
+              trigger: header,
+              start: 'top 86%',
               toggleActions: 'play none none reverse',
             },
           }
@@ -111,26 +131,85 @@ export function AtelierProcess({ onOpenConcierge }: AtelierProcessProps) {
         );
       }
 
-      // 3. Staggered text & card reveal for each monograph stage: slow, gentle rise
+      // 3. Decoupled text & card reveal for each monograph stage: slow, gentle rise
       const stepElements = container.querySelectorAll<HTMLElement>('.atelier-monograph-stage');
       stepElements.forEach((el, index) => {
-        const cardEls = el.querySelectorAll('.stage-pin-node, .stage-num-row, .stage-title, .stage-desc');
-        gsap.fromTo(
-          cardEls,
-          { y: 24, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            stagger: 0.12,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
+        const pinNode = el.querySelector('.stage-pin-node');
+        const numRow = el.querySelector('.stage-num-row');
+        const title = el.querySelector('.stage-title');
+        const desc = el.querySelector('.stage-desc');
+
+        if (pinNode) {
+          gsap.fromTo(
+            pinNode,
+            { scale: 0.5, opacity: 0 },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 1.2,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 88%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        if (numRow) {
+          gsap.fromTo(
+            numRow,
+            { y: 28, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.4,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 87%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        if (title) {
+          gsap.fromTo(
+            title,
+            { y: 38, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        if (desc) {
+          gsap.fromTo(
+            desc,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.4,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 83%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
 
         // Step triggers for active dot states
         ScrollTrigger.create({
@@ -147,12 +226,12 @@ export function AtelierProcess({ onOpenConcierge }: AtelierProcessProps) {
       if (ctaWrap) {
         gsap.fromTo(
           ctaWrap,
-          { y: 22, opacity: 0 },
+          { y: 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
             duration: 1.5,
-            ease: 'power2.out',
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: ctaWrap,
               start: 'top 88%',

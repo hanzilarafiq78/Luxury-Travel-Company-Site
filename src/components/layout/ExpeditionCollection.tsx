@@ -85,25 +85,65 @@ export function ExpeditionCollection({ onSelectExpedition }: ExpeditionCollectio
     if (!container) return;
 
     const ctx = gsap.context(() => {
-      // 1. Text elements in header rise in place: slow, silky, understated
+      // 1. Decoupled text elements in header rise in place on scroll
       if (headerRef.current) {
-        const headerEls = headerRef.current.querySelectorAll('.expedition-tag-wrapper, .expedition-title, .expedition-subtitle');
-        gsap.fromTo(
-          headerEls,
-          { y: 24, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.6,
-            stagger: 0.16,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
+        const tagWrapper = headerRef.current.querySelector('.expedition-tag-wrapper');
+        const title = headerRef.current.querySelector('.expedition-title');
+        const subtitle = headerRef.current.querySelector('.expedition-subtitle');
+
+        if (tagWrapper) {
+          gsap.fromTo(
+            tagWrapper,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.4,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: headerRef.current,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        if (title) {
+          gsap.fromTo(
+            title,
+            { y: 45, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.6,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: headerRef.current,
+                start: 'top 87%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
+
+        if (subtitle) {
+          gsap.fromTo(
+            subtitle,
+            { y: 32, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: headerRef.current,
+                start: 'top 84%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
+        }
       }
 
       // 2. Entry reveal for sanctuary index rows: prompt plus button & smooth text rise
@@ -115,13 +155,13 @@ export function ExpeditionCollection({ onSelectExpedition }: ExpeditionCollectio
         // Text elements rise in place
         gsap.fromTo(
           rowText,
-          { opacity: 0, y: 18 },
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
-            duration: 1.1,
-            stagger: 0.06,
-            ease: 'power2.out',
+            duration: 1.4,
+            stagger: 0.1,
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: item,
               start: 'top 92%',
@@ -134,11 +174,11 @@ export function ExpeditionCollection({ onSelectExpedition }: ExpeditionCollectio
         if (toggleBtn) {
           gsap.fromTo(
             toggleBtn,
-            { opacity: 0, scale: 0.85 },
+            { opacity: 0, scale: 0.8 },
             {
               opacity: 1,
               scale: 1,
-              duration: 0.65,
+              duration: 1.0,
               ease: 'power2.out',
               scrollTrigger: {
                 trigger: item,
