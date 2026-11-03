@@ -170,12 +170,12 @@
   --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
   
-  --duration-instant: 100ms;
-  --duration-fast: 200ms;
-  --duration-normal: 400ms;
-  --duration-slow: 600ms;
-  --duration-slower: 800ms;
-  --duration-cinematic: 1200ms;
+  --duration-instant: 150ms;
+  --duration-fast: 350ms;
+  --duration-normal: 600ms;
+  --duration-slow: 900ms;
+  --duration-slower: 1200ms;
+  --duration-cinematic: 1800ms;
   
   /* ── Z-Index Scale ── */
   --z-base: 0;
