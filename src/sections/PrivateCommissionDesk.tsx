@@ -145,12 +145,14 @@ export function PrivateCommissionDesk({
       <div ref={videoWrapRef} className="desk-video-bg-wrap" aria-hidden="true">
         <video
           className="desk-bg-video"
-          src="/videos/compressed_final_video.mp4"
           autoPlay
           loop
           muted
           playsInline
-        />
+          preload="auto"
+        >
+          <source src="/videos/compressed_final_video.webm" type="video/webm" />
+        </video>
         <div className="desk-video-overlay" />
       </div>
 

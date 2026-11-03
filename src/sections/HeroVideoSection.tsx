@@ -7,7 +7,6 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import heroVideoUrl from '../assets/videos/hero.mp4';
 import './HeroVideoSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -149,10 +148,9 @@ export function HeroVideoSection({ onExplore, isLoaded }: HeroVideoSectionProps)
           loading="eager"
         />
 
-        {/* Live Workspace Video (Imported directly via Vite) */}
+        {/* Live Workspace Video (High-Performance WebM) */}
         <video
           ref={videoRef}
-          src={heroVideoUrl}
           autoPlay
           muted
           loop
@@ -160,8 +158,7 @@ export function HeroVideoSection({ onExplore, isLoaded }: HeroVideoSectionProps)
           preload="auto"
           className="hero-exact-video-el"
         >
-          <source src={heroVideoUrl} type="video/mp4" />
-          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero.webm" type="video/webm" />
         </video>
 
         {/* Filmic 35mm Vignette Scrim */}
