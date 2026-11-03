@@ -282,7 +282,7 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 10px 25px rgba(26, 23, 20, 0.15);
 }
 
@@ -295,7 +295,7 @@
 }
 
 .btn-arrow {
-  transition: transform 0.3s ease;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   color: #ebd892;
 }
 

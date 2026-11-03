@@ -11,7 +11,7 @@
   z-index: calc(var(--z-modal) + 10);
   display: flex;
   justify-content: flex-end;
-  animation: fade-in 0.3s ease-out;
+  animation: fade-in 0.5s ease-out;
 }
 
 .booking-drawer {
@@ -24,7 +24,7 @@
   overflow-y: auto;
   position: relative;
   box-shadow: -20px 0 60px rgba(0, 0, 0, 0.8);
-  animation: slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: slide-in 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes slide-in {
@@ -59,12 +59,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drawer-close-btn:hover {
   background: rgba(255, 255, 255, 0.15);
   color: var(--color-white);
+  transform: rotate(90deg);
 }
 
 .drawer-eyebrow {
@@ -117,7 +118,12 @@
   color: var(--color-neutral-300);
   font-size: var(--text-xs);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.season-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(212, 178, 74, 0.3);
 }
 
 .season-pill.active {
@@ -245,12 +251,13 @@
   border-radius: var(--radius-full);
   border: none;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .submit-booking-btn:hover {
   background: var(--color-accent-300);
   box-shadow: var(--shadow-glow-gold);
+  transform: translateY(-2px);
 }
 
 .drawer-guarantee {

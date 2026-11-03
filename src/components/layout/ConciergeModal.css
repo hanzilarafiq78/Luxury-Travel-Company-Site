@@ -25,7 +25,7 @@
   padding: var(--space-8);
   position: relative;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), var(--shadow-glow-gold);
-  animation: scale-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: scale-up 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes scale-up {
@@ -54,11 +54,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-close-btn:hover {
   background: rgba(255, 255, 255, 0.15);
   color: var(--color-white);
+  transform: rotate(90deg);
 }
 
 .modal-eyebrow {
@@ -108,12 +110,13 @@
   font-family: var(--font-body);
   font-size: var(--text-xs);
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.45s ease, background-color 0.45s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--color-accent-400);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .modal-submit-btn {
@@ -129,12 +132,13 @@
   border: none;
   cursor: pointer;
   margin-top: var(--space-4);
-  transition: all 0.2s;
+  transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-submit-btn:hover {
   background: var(--color-accent-300);
   box-shadow: var(--shadow-glow-gold);
+  transform: translateY(-2px);
 }
 
 .modal-submitted {

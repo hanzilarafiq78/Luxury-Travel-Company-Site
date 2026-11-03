@@ -396,7 +396,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .expanded-reserve-btn:hover {
@@ -408,7 +408,7 @@
 }
 
 .reserve-arrow {
-  transition: transform 0.3s ease;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   font-size: 0.95rem;
   line-height: 1;
 }
