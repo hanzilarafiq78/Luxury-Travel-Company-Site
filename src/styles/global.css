@@ -14,6 +14,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -286,6 +287,14 @@ canvas {
   *::before,
   *::after {
     cursor: none !important;
+  }
+}
+
+/* ── Hide Custom Cursors on Touch Devices ── */
+@media (pointer: coarse), (hover: none) {
+  .custom-cursor,
+  .cursor-dot {
+    display: none !important;
   }
 }
 

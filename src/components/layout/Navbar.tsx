@@ -19,6 +19,7 @@ interface NavbarProps {
 export function Navbar({ onOpenBooking, onOpenConcierge }: NavbarProps) {
   const [isLightMode, setIsLightMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Slow, smooth, luxury scroll navigation
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -44,6 +45,28 @@ export function Navbar({ onOpenBooking, onOpenConcierge }: NavbarProps) {
       });
     }
   };
+
+  const onMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    setIsMobileMenuOpen(false);
+    handleNavClick(e, targetId);
+  };
+
+  const onMobileReserveClick = () => {
+    setIsMobileMenuOpen(false);
+    onOpenBooking();
+  };
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const checkNavbarTheme = () => {
@@ -112,64 +135,143 @@ export function Navbar({ onOpenBooking, onOpenConcierge }: NavbarProps) {
   }, []);
 
   return (
-    <header
-      className={`navbar-hero-exact ${isLightMode ? 'theme-light' : 'theme-dark'} ${isScrolled ? 'is-scrolled' : ''
-        }`}
-    >
-      <div className="navbar-hero-inner">
-        {/* Brand: slow, smooth glide to top */}
-        <a
-          href="/"
-          className="navbar-brand-exact interactive"
-          onClick={(e) => handleNavClick(e, 'top')}
-        >
-          <span>ELYSIAN</span>
-        </a>
+    <>
+      <header
+        className={`navbar-hero-exact ${isLightMode ? 'theme-light' : 'theme-dark'} ${
+          isScrolled ? 'is-scrolled' : ''
+        } ${isMobileMenuOpen ? 'mobile-menu-active' : ''}`}
+      >
+        <div className="navbar-hero-inner">
+          {/* Brand: slow, smooth glide to top */}
+          <a
+            href="/"
+            className="navbar-brand-exact interactive"
+            onClick={(e) => {
+              if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+              handleNavClick(e, 'top');
+            }}
+          >
+            <span>ELYSIAN</span>
+          </a>
 
-        {/* Center Links: slow, stately, award-winning cruise to sections */}
-        <nav className="navbar-nav-exact">
-          <a
-            href="#manifesto"
-            className="nav-item-exact interactive"
-            onClick={(e) => handleNavClick(e, 'manifesto')}
-          >
-            Manifesto
-          </a>
-          <a
-            href="#frontiers"
-            className="nav-item-exact interactive"
-            onClick={(e) => handleNavClick(e, 'frontiers')}
-          >
-            Frontiers
-          </a>
-          <a
-            href="#process"
-            className="nav-item-exact interactive"
-            onClick={(e) => handleNavClick(e, 'process')}
-          >
-            Atelier
-          </a>
-          <a
-            href="#sanctuaries"
-            className="nav-item-exact interactive"
-            onClick={(e) => handleNavClick(e, 'sanctuaries')}
-          >
-            Sanctuaries
-          </a>
-        </nav>
+          {/* Center Links: slow, stately, award-winning cruise to sections */}
+          <nav className="navbar-nav-exact">
+            <a
+              href="#manifesto"
+              className="nav-item-exact interactive"
+              onClick={(e) => handleNavClick(e, 'manifesto')}
+            >
+              Manifesto
+            </a>
+            <a
+              href="#frontiers"
+              className="nav-item-exact interactive"
+              onClick={(e) => handleNavClick(e, 'frontiers')}
+            >
+              Frontiers
+            </a>
+            <a
+              href="#process"
+              className="nav-item-exact interactive"
+              onClick={(e) => handleNavClick(e, 'process')}
+            >
+              Atelier
+            </a>
+            <a
+              href="#sanctuaries"
+              className="nav-item-exact interactive"
+              onClick={(e) => handleNavClick(e, 'sanctuaries')}
+            >
+              Sanctuaries
+            </a>
+          </nav>
 
-        {/* Right CTA */}
-        <div className="navbar-action-exact">
-          <button
-            type="button"
-            className="navbar-reserve-pill interactive"
-            onClick={onOpenBooking}
-          >
-            Reserve Itinerary
-          </button>
+          {/* Right Action & Mobile Toggle */}
+          <div className="navbar-action-exact">
+            <button
+              type="button"
+              className="navbar-reserve-pill interactive"
+              onClick={onOpenBooking}
+            >
+              Reserve Itinerary
+            </button>
+
+            <button
+              type="button"
+              className={`navbar-mobile-toggle interactive ${isMobileMenuOpen ? 'is-active' : ''}`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span className="toggle-line line-1" />
+              <span className="toggle-line line-2" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Luxury Mobile Navigation Drawer */}
+      <div
+        className={`navbar-mobile-overlay ${isMobileMenuOpen ? 'is-open' : ''}`}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        <div className="mobile-overlay-inner">
+          <div className="mobile-eyebrow">
+            <span className="mobile-eyebrow-line" />
+            <span>Navigation</span>
+          </div>
+
+          <nav className="mobile-nav-links">
+            <a
+              href="#manifesto"
+              className="mobile-nav-item"
+              onClick={(e) => onMobileNavClick(e, 'manifesto')}
+            >
+              <span className="mobile-nav-num">01</span>
+              <span className="mobile-nav-text">Manifesto</span>
+            </a>
+            <a
+              href="#frontiers"
+              className="mobile-nav-item"
+              onClick={(e) => onMobileNavClick(e, 'frontiers')}
+            >
+              <span className="mobile-nav-num">02</span>
+              <span className="mobile-nav-text">Frontiers</span>
+            </a>
+            <a
+              href="#process"
+              className="mobile-nav-item"
+              onClick={(e) => onMobileNavClick(e, 'process')}
+            >
+              <span className="mobile-nav-num">03</span>
+              <span className="mobile-nav-text">Atelier</span>
+            </a>
+            <a
+              href="#sanctuaries"
+              className="mobile-nav-item"
+              onClick={(e) => onMobileNavClick(e, 'sanctuaries')}
+            >
+              <span className="mobile-nav-num">04</span>
+              <span className="mobile-nav-text">Sanctuaries</span>
+            </a>
+          </nav>
+
+          <div className="mobile-menu-footer">
+            <button
+              type="button"
+              className="mobile-reserve-btn"
+              onClick={onMobileReserveClick}
+            >
+              <span>Reserve Itinerary</span>
+              <span className="mobile-btn-arrow">→</span>
+            </button>
+            <p className="mobile-menu-tagline">
+              Journeys for the Few • Absolute Solitude
+            </p>
+          </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
 

@@ -311,3 +311,20 @@
   color: var(--color-neutral-400);
 }
 
+@media (max-width: 640px) {
+  .booking-drawer {
+    max-width: 100%;
+    padding: 1.5rem 1.25rem 3rem;
+  }
+
+  .season-pills {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .drawer-close-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+

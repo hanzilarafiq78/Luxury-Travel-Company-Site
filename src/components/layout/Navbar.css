@@ -218,8 +218,251 @@
   transform: translateY(-1px);
 }
 
+/* ── Mobile Hamburger Toggle Button ── */
+.navbar-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  pointer-events: auto;
+  position: relative;
+  z-index: 101;
+  color: #ffffff;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-hero-exact.theme-light .navbar-mobile-toggle {
+  color: #1a1714;
+}
+
+.navbar-hero-exact.mobile-menu-active .navbar-mobile-toggle,
+.navbar-hero-exact.theme-light.mobile-menu-active .navbar-mobile-toggle {
+  color: #ffffff !important;
+}
+
+.toggle-line {
+  display: block;
+  height: 1.5px;
+  background-color: currentColor;
+  border-radius: 1px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.3s ease,
+              background-color 0.4s ease;
+  transform-origin: center;
+}
+
+.toggle-line.line-1 {
+  width: 24px;
+}
+
+.toggle-line.line-2 {
+  width: 18px;
+}
+
+.navbar-mobile-toggle:hover .toggle-line.line-2 {
+  width: 24px;
+}
+
+.navbar-mobile-toggle.is-active .toggle-line.line-1 {
+  width: 22px;
+  transform: translateY(3.75px) rotate(45deg);
+}
+
+.navbar-mobile-toggle.is-active .toggle-line.line-2 {
+  width: 22px;
+  transform: translateY(-3.75px) rotate(-45deg);
+}
+
+/* ── Luxury Mobile Navigation Drawer ── */
+.navbar-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(8, 11, 18, 0.98);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  z-index: 95;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.45s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.navbar-mobile-overlay.is-open {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-overlay-inner {
+  width: 100%;
+  max-width: 480px;
+  padding: 6rem 2rem 3rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.mobile-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #deb87a;
+  font-weight: 500;
+}
+
+.mobile-eyebrow-line {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: #deb87a;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin: auto 0;
+}
+
+.mobile-nav-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  text-decoration: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0.25rem 0;
+}
+
+.mobile-nav-item:hover {
+  transform: translateX(8px);
+}
+
+.mobile-nav-num {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #deb87a;
+  opacity: 0.75;
+}
+
+.mobile-nav-text {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(2rem, 7vw, 2.75rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  transition: color 0.35s ease;
+}
+
+.mobile-nav-item:hover .mobile-nav-text {
+  color: #ebd892;
+}
+
+.mobile-menu-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile-reserve-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 1rem 1.75rem;
+  background: rgba(212, 178, 74, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(212, 178, 74, 0.45);
+  border-radius: 2px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-reserve-btn:hover {
+  background: #deb87a;
+  color: #080b12;
+  border-color: #deb87a;
+}
+
+.mobile-btn-arrow {
+  font-size: 0.95rem;
+  transition: transform 0.3s ease;
+}
+
+.mobile-reserve-btn:hover .mobile-btn-arrow {
+  transform: translateX(4px);
+}
+
+.mobile-menu-tagline {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* ── Responsive Viewport Rules ── */
 @media (max-width: 860px) {
   .navbar-nav-exact {
     display: none;
+  }
+
+  .navbar-mobile-toggle {
+    display: flex;
+  }
+
+  .navbar-action-exact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-hero-exact {
+    padding: 14px 20px;
+  }
+
+  .navbar-hero-exact.is-scrolled {
+    padding: 12px 20px;
+  }
+
+  .navbar-reserve-pill {
+    display: none;
+  }
+
+  .navbar-brand-exact {
+    font-size: 1.15rem;
+    letter-spacing: 0.28em;
   }
 }

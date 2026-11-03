@@ -438,3 +438,85 @@
     margin-left: 2.85rem;
   }
 }
+
+@media (max-width: 640px) {
+  .sanctuaries-dark-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .expedition-header {
+    margin-bottom: 3.25rem;
+  }
+
+  .expedition-title {
+    font-size: clamp(2rem, 7.8vw, 2.75rem);
+  }
+
+  .sanctuary-collapsed-row {
+    padding: 1.25rem 0.25rem;
+  }
+
+  .collapsed-left {
+    gap: 0.75rem;
+  }
+
+  .collapsed-index {
+    font-size: 1.15rem;
+    min-width: 1.5rem;
+  }
+
+  .collapsed-title {
+    font-size: 1.25rem;
+  }
+
+  .collapsed-region {
+    margin-left: 2.25rem;
+    font-size: 0.625rem;
+  }
+
+  .sanctuary-toggle-btn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .expanded-container {
+    padding: 1.75rem 0.25rem 2.5rem;
+  }
+
+  .expanded-title {
+    font-size: clamp(1.85rem, 6.5vw, 2.35rem);
+  }
+
+  .expanded-meta-bar {
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+    padding: 1rem 0;
+  }
+
+  .spec-divider {
+    display: none;
+  }
+
+  .expanded-reserve-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sanctuaries-dark-section {
+    padding: 4.25rem 1rem;
+  }
+
+  .collapsed-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .collapsed-region {
+    margin-left: 0;
+  }
+}

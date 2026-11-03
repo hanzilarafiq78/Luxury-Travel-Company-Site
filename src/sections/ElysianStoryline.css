@@ -216,3 +216,20 @@
     font-size: 0.9375rem;
   }
 }
+
+@media (max-width: 480px) {
+  .chapter-panel {
+    padding: 4.5rem 1.25rem;
+  }
+
+  .chapter-heading {
+    font-size: clamp(1.85rem, 8vw, 2.2rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .chapter-description {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}

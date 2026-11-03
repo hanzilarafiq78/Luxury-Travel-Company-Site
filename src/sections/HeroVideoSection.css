@@ -167,10 +167,40 @@
   .hero-exact-content-grid {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-6);
+    gap: 1.5rem;
+    padding: 0 1.5rem 2.75rem;
+  }
+
+  .headline-line-white {
+    font-size: clamp(2.4rem, 9.5vw, 3.8rem);
+  }
+
+  .headline-line-gold {
+    font-size: clamp(2.6rem, 10.5vw, 4.2rem);
   }
 
   .hero-exact-bottom-right {
     align-self: flex-start;
+    margin-bottom: 0;
+  }
+
+  .scroll-discover-text {
+    font-size: 0.625rem;
+    letter-spacing: 0.22em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-exact-content-grid {
+    padding: 0 1.25rem 2.25rem;
+    gap: 1.25rem;
+  }
+
+  .headline-line-white {
+    font-size: clamp(2.1rem, 8.8vw, 2.9rem);
+  }
+
+  .headline-line-gold {
+    font-size: clamp(2.3rem, 9.8vw, 3.2rem);
   }
 }
