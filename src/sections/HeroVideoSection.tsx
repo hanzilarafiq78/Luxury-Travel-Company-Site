@@ -142,7 +142,7 @@ export function HeroVideoSection({ onExplore, isLoaded }: HeroVideoSectionProps)
       <div ref={mediaRef} className="hero-exact-media">
         {/* Fallback image */}
         <img
-          src="/images/hero_highland_clean.jpg"
+          src="/images/hero_highland_clean.webp"
           alt="Highland Horizon"
           className="hero-exact-backdrop-img"
           loading="eager"

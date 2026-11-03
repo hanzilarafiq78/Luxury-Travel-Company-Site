@@ -214,7 +214,7 @@ export function ManifestoSection() {
             {/* Top Image: Vertical Ocean Cliff Portrait */}
             <div ref={cliffRef} className="manifesto-photo-wrap photo-cliff-portrait">
               <img
-                src="/images/manifesto_cliff.jpg"
+                src="/images/manifesto_cliff.webp"
                 alt="Coastal Headland Sanctuary"
                 className="manifesto-photo-img"
                 loading="eager"
@@ -224,7 +224,7 @@ export function ManifestoSection() {
             {/* Bottom Image: Horizontal Sunset Aegean Landscape (Overlapping at Bottom) */}
             <div ref={sunsetRef} className="manifesto-photo-wrap photo-sunset-landscape">
               <img
-                src="/images/manifesto_sunset.jpg"
+                src="/images/manifesto_sunset.webp"
                 alt="Sunlit Solitude"
                 className="manifesto-photo-img"
                 loading="eager"

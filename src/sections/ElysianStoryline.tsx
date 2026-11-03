@@ -23,7 +23,7 @@ export const FRONTIERS = [
     description:
       'Secluded overwater pavilions nestled amidst protected Polynesian atolls. Untouched crystal lagoons, private motus, and ocean horizons uninterrupted by the modern world.',
     linkText: 'View Coastal Sanctuaries',
-    image: '/images/tropical.jpg',
+    image: '/images/tropical.webp',
   },
   {
     id: 'frontier-jungle',
@@ -33,7 +33,7 @@ export const FRONTIERS = [
     description:
       'Glass-walled architecture suspended within ancient cloud forests. Encounter extraordinary biodiversity, winding canopy trails, and guided midnight river expeditions.',
     linkText: 'View Rainforest Lodges',
-    image: '/images/jungle.jpg',
+    image: '/images/jungle.webp',
   },
   {
     id: 'frontier-desert',
@@ -43,7 +43,7 @@ export const FRONTIERS = [
     description:
       'Minimalist stone pavilions sculpted into ancient sandstone massifs. Endless celestial skies, vast silent expanses, and hearth-cooked Bedouin gastronomy under the stars.',
     linkText: 'View Desert Sanctuaries',
-    image: '/images/desert.jpg',
+    image: '/images/desert.webp',
   },
   {
     id: 'frontier-alpine',
@@ -53,7 +53,7 @@ export const FRONTIERS = [
     description:
       'Handcrafted timber and stone chalets perched at 2,800 meters. Private helicopter glacier drop-offs, panoramic alpine views, and fireside serenity overlooking glacial valleys.',
     linkText: 'View Alpine Chalets',
-    image: '/images/alpine.jpg',
+    image: '/images/alpine.webp',
   },
 ];
 
