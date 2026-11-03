@@ -24,54 +24,89 @@ export function HeroVideoSection({ onExplore }: HeroVideoSectionProps) {
 
   useEffect(() => {
     const video = videoRef.current;
+    let onUserInteract: (() => void) | undefined;
+    let playVideo: (() => void) | undefined;
+
     if (video) {
+      // Ensure HTML attributes match properties for WebKit / Safari iOS policy
       video.muted = true;
       video.defaultMuted = true;
       video.playsInline = true;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((err) => {
-          console.warn('[ELYSIAN] Autoplay was prevented:', err);
-        });
-      }
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+
+      playVideo = () => {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn('[ELYSIAN] Autoplay was prevented:', err);
+          });
+        }
+      };
+
+      playVideo();
+      video.addEventListener('loadeddata', playVideo);
+      video.addEventListener('canplay', playVideo);
+
+      // In case iOS Low Power Mode delays autoplay, activate on first interaction
+      onUserInteract = () => {
+        if (video.paused && playVideo) {
+          playVideo();
+        }
+      };
+      window.addEventListener('touchstart', onUserInteract, { once: true, passive: true });
+      window.addEventListener('scroll', onUserInteract, { once: true, passive: true });
+      window.addEventListener('click', onUserInteract, { once: true, passive: true });
     }
 
     const section = sectionRef.current;
-    if (!section) return;
+    let ctx: gsap.Context | undefined;
+    if (section) {
+      ctx = gsap.context(() => {
+        // 1. Slow, subtle media background parallax scrub on scroll
+        if (mediaRef.current) {
+          gsap.to(mediaRef.current, {
+            yPercent: 14,
+            scale: 1.05,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top top',
+              end: 'bottom top',
+              scrub: 1.4,
+            },
+          });
+        }
 
-    const ctx = gsap.context(() => {
-      // 1. Slow, subtle media background parallax scrub on scroll
-      if (mediaRef.current) {
-        gsap.to(mediaRef.current, {
-          yPercent: 14,
-          scale: 1.05,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.4,
-          },
-        });
+        // 2. Headline & scroll cue decoupled soft upward drift & fade
+        if (contentRef.current) {
+          gsap.to(contentRef.current, {
+            y: -45,
+            opacity: 0.15,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top top',
+              end: 'bottom top',
+              scrub: 1.2,
+            },
+          });
+        }
+      }, section);
+    }
+
+    return () => {
+      if (video && playVideo) {
+        video.removeEventListener('loadeddata', playVideo);
+        video.removeEventListener('canplay', playVideo);
       }
-
-      // 2. Headline & scroll cue decoupled soft upward drift & fade
-      if (contentRef.current) {
-        gsap.to(contentRef.current, {
-          y: -45,
-          opacity: 0.15,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.2,
-          },
-        });
+      if (onUserInteract) {
+        window.removeEventListener('touchstart', onUserInteract);
+        window.removeEventListener('scroll', onUserInteract);
+        window.removeEventListener('click', onUserInteract);
       }
-    }, section);
-
-    return () => ctx.revert();
+      ctx?.revert();
+    };
   }, []);
 
   return (

@@ -5,7 +5,8 @@
 
 .hero-exact-section {
   position: relative;
-  z-index: 25; /* Always above any underlying fixed storyline stages */
+  z-index: 25;
+  /* Always above any underlying fixed storyline stages */
   width: 100%;
   height: 100vh;
   height: 100dvh;
@@ -49,7 +50,8 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-  opacity: 1; /* Always visible */
+  opacity: 1;
+  /* Always visible */
 }
 
 /* Atmospheric Light-Preserving 35mm Vignette Scrim */
@@ -57,7 +59,7 @@
   position: absolute;
   inset: 0;
   z-index: 3;
-  background: 
+  background:
     radial-gradient(circle at 50% 50%, transparent 55%, rgba(7, 9, 15, 0.22) 85%, rgba(7, 9, 15, 0.42) 100%),
     linear-gradient(180deg, rgba(7, 9, 15, 0.3) 0%, transparent 25%, transparent 70%, rgba(7, 9, 15, 0.55) 100%);
   pointer-events: none;
@@ -152,10 +154,13 @@
 }
 
 @keyframes gentle-bob {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
     opacity: 0.8;
   }
+
   50% {
     transform: translateY(5px);
     opacity: 1;
@@ -167,40 +172,10 @@
   .hero-exact-content-grid {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
-    padding: 0 1.5rem 2.75rem;
-  }
-
-  .headline-line-white {
-    font-size: clamp(2.4rem, 9.5vw, 3.8rem);
-  }
-
-  .headline-line-gold {
-    font-size: clamp(2.6rem, 10.5vw, 4.2rem);
+    gap: var(--space-6);
   }
 
   .hero-exact-bottom-right {
     align-self: flex-start;
-    margin-bottom: 0;
-  }
-
-  .scroll-discover-text {
-    font-size: 0.625rem;
-    letter-spacing: 0.22em;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-exact-content-grid {
-    padding: 0 1.25rem 2.25rem;
-    gap: 1.25rem;
-  }
-
-  .headline-line-white {
-    font-size: clamp(2.1rem, 8.8vw, 2.9rem);
-  }
-
-  .headline-line-gold {
-    font-size: clamp(2.3rem, 9.8vw, 3.2rem);
   }
 }

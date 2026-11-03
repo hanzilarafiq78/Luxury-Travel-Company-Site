@@ -211,66 +211,68 @@ export function Navbar({ onOpenBooking, onOpenConcierge }: NavbarProps) {
       </header>
 
       {/* Luxury Mobile Navigation Drawer */}
-      <div
-        className={`navbar-mobile-overlay ${isMobileMenuOpen ? 'is-open' : ''}`}
-        aria-hidden={!isMobileMenuOpen}
-      >
-        <div className="mobile-overlay-inner">
-          <div className="mobile-eyebrow">
-            <span className="mobile-eyebrow-line" />
-            <span>Navigation</span>
-          </div>
+      {isMobileMenuOpen && (
+        <div
+          className="navbar-mobile-overlay is-open"
+          aria-hidden={!isMobileMenuOpen}
+        >
+          <div className="mobile-overlay-inner">
+            <div className="mobile-eyebrow">
+              <span className="mobile-eyebrow-line" />
+              <span>Navigation</span>
+            </div>
 
-          <nav className="mobile-nav-links">
-            <a
-              href="#manifesto"
-              className="mobile-nav-item"
-              onClick={(e) => onMobileNavClick(e, 'manifesto')}
-            >
-              <span className="mobile-nav-num">01</span>
-              <span className="mobile-nav-text">Manifesto</span>
-            </a>
-            <a
-              href="#frontiers"
-              className="mobile-nav-item"
-              onClick={(e) => onMobileNavClick(e, 'frontiers')}
-            >
-              <span className="mobile-nav-num">02</span>
-              <span className="mobile-nav-text">Frontiers</span>
-            </a>
-            <a
-              href="#process"
-              className="mobile-nav-item"
-              onClick={(e) => onMobileNavClick(e, 'process')}
-            >
-              <span className="mobile-nav-num">03</span>
-              <span className="mobile-nav-text">Atelier</span>
-            </a>
-            <a
-              href="#sanctuaries"
-              className="mobile-nav-item"
-              onClick={(e) => onMobileNavClick(e, 'sanctuaries')}
-            >
-              <span className="mobile-nav-num">04</span>
-              <span className="mobile-nav-text">Sanctuaries</span>
-            </a>
-          </nav>
+            <nav className="mobile-nav-links">
+              <a
+                href="#manifesto"
+                className="mobile-nav-item"
+                onClick={(e) => onMobileNavClick(e, 'manifesto')}
+              >
+                <span className="mobile-nav-num">01</span>
+                <span className="mobile-nav-text">Manifesto</span>
+              </a>
+              <a
+                href="#frontiers"
+                className="mobile-nav-item"
+                onClick={(e) => onMobileNavClick(e, 'frontiers')}
+              >
+                <span className="mobile-nav-num">02</span>
+                <span className="mobile-nav-text">Frontiers</span>
+              </a>
+              <a
+                href="#process"
+                className="mobile-nav-item"
+                onClick={(e) => onMobileNavClick(e, 'process')}
+              >
+                <span className="mobile-nav-num">03</span>
+                <span className="mobile-nav-text">Atelier</span>
+              </a>
+              <a
+                href="#sanctuaries"
+                className="mobile-nav-item"
+                onClick={(e) => onMobileNavClick(e, 'sanctuaries')}
+              >
+                <span className="mobile-nav-num">04</span>
+                <span className="mobile-nav-text">Sanctuaries</span>
+              </a>
+            </nav>
 
-          <div className="mobile-menu-footer">
-            <button
-              type="button"
-              className="mobile-reserve-btn"
-              onClick={onMobileReserveClick}
-            >
-              <span>Reserve Itinerary</span>
-              <span className="mobile-btn-arrow">→</span>
-            </button>
-            <p className="mobile-menu-tagline">
-              Journeys for the Few • Absolute Solitude
-            </p>
+            <div className="mobile-menu-footer">
+              <button
+                type="button"
+                className="mobile-reserve-btn"
+                onClick={onMobileReserveClick}
+              >
+                <span>Reserve Itinerary</span>
+                <span className="mobile-btn-arrow">→</span>
+              </button>
+              <p className="mobile-menu-tagline">
+                Journeys for the Few • Absolute Solitude
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
