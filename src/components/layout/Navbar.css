@@ -1,0 +1,225 @@
+/* ═══════════════════════════════════════════════════════════════
+   ELYSIAN — Adaptive Dual-Theme Navigation Bar
+   Silky Subtle Transitions • Frosted Glass • Pure Quiet Luxury
+   ═══════════════════════════════════════════════════════════════ */
+
+.navbar-hero-exact {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: clamp(16px, 2.2vw, 24px) clamp(30px, 4.5vw, 64px);
+  box-sizing: border-box;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  pointer-events: none;
+  transition: 
+    background-color 0.35s ease,
+    backdrop-filter 0.35s ease,
+    -webkit-backdrop-filter 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    padding 0.35s ease;
+}
+
+.navbar-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Brand Mark ── */
+.navbar-brand-exact {
+  pointer-events: auto;
+  text-decoration: none;
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.55rem);
+  font-weight: 400;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-brand-exact:hover {
+  letter-spacing: 0.42em;
+}
+
+/* ── Center Links ── */
+.navbar-nav-exact {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3.5vw, 44px);
+}
+
+.nav-item-exact {
+  position: relative;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-item-exact::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.8;
+}
+
+.nav-item-exact:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* ── Right CTA Pill ── */
+.navbar-action-exact {
+  pointer-events: auto;
+}
+
+.navbar-reserve-pill {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 9px 24px;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  transition: 
+    color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-reserve-pill:hover {
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   THEME: DARK (Completely Transparent at Darker Sections)
+   ═══════════════════════════════════════════════════════════════ */
+.navbar-hero-exact.theme-dark,
+.navbar-hero-exact.theme-dark.is-scrolled {
+  background-color: transparent !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.navbar-hero-exact.theme-dark.is-scrolled {
+  padding-top: clamp(14px, 2vw, 20px);
+  padding-bottom: clamp(14px, 2vw, 20px);
+}
+
+.navbar-hero-exact.theme-dark .navbar-brand-exact {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.navbar-hero-exact.theme-dark .navbar-brand-exact:hover {
+  color: var(--color-accent-300, #ebd892);
+}
+
+.navbar-hero-exact.theme-dark .nav-item-exact {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+.navbar-hero-exact.theme-dark .nav-item-exact:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.navbar-hero-exact.theme-dark .navbar-reserve-pill {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-hero-exact.theme-dark .navbar-reserve-pill:hover {
+  border-color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   THEME: LIGHT (Manifesto, Pillars, Atelier, Sanctuaries)
+   High-contrast Obsidian typography on light cream travertine/gallery
+   ═══════════════════════════════════════════════════════════════ */
+.navbar-hero-exact.theme-light {
+  background-color: rgba(250, 248, 245, 0.94) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-bottom: 1px solid rgba(44, 37, 29, 0.12) !important;
+  box-shadow: 0 4px 30px rgba(44, 37, 29, 0.06) !important;
+  padding-top: clamp(12px, 1.8vw, 18px);
+  padding-bottom: clamp(12px, 1.8vw, 18px);
+}
+
+.navbar-hero-exact.theme-light .navbar-brand-exact {
+  color: #1a1714 !important;
+  text-shadow: none !important;
+}
+
+.navbar-hero-exact.theme-light .navbar-brand-exact:hover {
+  color: #b8903b !important;
+}
+
+.navbar-hero-exact.theme-light .nav-item-exact {
+  color: #2c251d !important;
+  text-shadow: none !important;
+  font-weight: 500 !important;
+}
+
+.navbar-hero-exact.theme-light .nav-item-exact:hover {
+  color: #b8903b !important;
+  text-shadow: none !important;
+}
+
+.navbar-hero-exact.theme-light .navbar-reserve-pill {
+  color: #1a1714 !important;
+  background: rgba(26, 23, 20, 0.05) !important;
+  border: 1px solid rgba(26, 23, 20, 0.35) !important;
+  text-shadow: none !important;
+}
+
+.navbar-hero-exact.theme-light .navbar-reserve-pill:hover {
+  background: #1a1714 !important;
+  color: #ffffff !important;
+  border-color: #1a1714 !important;
+  box-shadow: 0 4px 18px rgba(26, 23, 20, 0.2) !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 860px) {
+  .navbar-nav-exact {
+    display: none;
+  }
+}

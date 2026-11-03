@@ -1,0 +1,73 @@
+/* ═══════════════════════════════════════════════════════════════
+   Preloader Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-max);
+}
+
+.preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.preloader__brand {
+  font-family: var(--font-accent);
+  font-size: var(--text-3xl);
+  letter-spacing: var(--tracking-luxury);
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+  opacity: 0;
+}
+
+.preloader__progress-track {
+  width: 200px;
+  height: 1px;
+  background: var(--color-neutral-700);
+  overflow: hidden;
+  border-radius: var(--radius-full);
+}
+
+.preloader__progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-600),
+    var(--color-accent-400)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.preloader__counter {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-light);
+  color: var(--color-neutral-400);
+  letter-spacing: var(--tracking-wider);
+}
+
+.preloader__counter-number {
+  font-variant-numeric: tabular-nums;
+}
+
+.preloader__counter-symbol {
+  margin-left: 2px;
+}
+
+.preloader[aria-hidden="true"] {
+  display: none !important;
+  pointer-events: none !important;
+}

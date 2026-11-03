@@ -1,0 +1,201 @@
+/* ═══════════════════════════════════════════════════════════════
+   ELYSIAN — Editorial Separator Styles
+   Subtle Luxury Hairline • Pure Restraint • Zero Visual Slop
+   ═══════════════════════════════════════════════════════════════ */
+
+.editorial-separator-wrap {
+  width: 100%;
+  position: relative;
+  padding: 4rem 2rem;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.separator-container {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.separator-hairline {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(212, 178, 74, 0) 0%,
+    rgba(212, 178, 74, 0.25) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  position: relative;
+}
+
+.hairline-right {
+  transform: scaleX(-1);
+}
+
+.separator-emblem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.astrolabe-ring {
+  width: 32px;
+  height: 32px;
+  animation: astrolabeSpin 40s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes astrolabeSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.astrolabe-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.astrolabe-outer {
+  fill: none;
+  stroke: rgba(212, 178, 74, 0.4);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+
+.astrolabe-inner {
+  fill: none;
+  stroke: rgba(212, 178, 74, 0.6);
+  stroke-width: 0.8;
+}
+
+.astrolabe-axis {
+  stroke: rgba(212, 178, 74, 0.3);
+  stroke-width: 0.6;
+}
+
+.astrolabe-core {
+  fill: var(--color-accent-500, #d4b24a);
+}
+
+.separator-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.telemetry-label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+.telemetry-number {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--color-accent-400, #e0c56e);
+  letter-spacing: 0.15em;
+}
+
+.telemetry-coords {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  color: rgba(212, 178, 74, 0.55);
+}
+
+/* ── THEME: LIGHT (Sun-Drenched Alabaster Sections) ── */
+.theme-light .separator-hairline {
+  background: linear-gradient(
+    90deg,
+    rgba(184, 144, 59, 0) 0%,
+    rgba(184, 144, 59, 0.35) 50%,
+    rgba(44, 37, 29, 0.12) 100%
+  );
+}
+
+.theme-light .astrolabe-outer {
+  stroke: rgba(184, 144, 59, 0.5);
+}
+
+.theme-light .astrolabe-inner {
+  stroke: rgba(184, 144, 59, 0.8);
+}
+
+.theme-light .astrolabe-axis {
+  stroke: rgba(44, 37, 29, 0.25);
+}
+
+.theme-light .astrolabe-core {
+  fill: #b8903b;
+}
+
+.theme-light .telemetry-label {
+  color: #5e564a;
+}
+
+.theme-light .telemetry-number {
+  color: #9e7b2f;
+  font-weight: 600;
+}
+
+.theme-light .telemetry-coords {
+  color: #8e8372;
+}
+
+/* Variant: Minimal */
+.variant-minimal {
+  padding: 2.5rem 2rem;
+}
+.variant-minimal .telemetry-coords,
+.variant-minimal .telemetry-label {
+  display: none;
+}
+
+/* Variant: Aperture Break */
+.variant-aperture {
+  padding: 6rem 2rem;
+}
+.variant-aperture::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 1px;
+  background: radial-gradient(circle, rgba(212, 178, 74, 0.3) 0%, transparent 70%);
+  filter: blur(8px);
+}
+
+.theme-light.variant-aperture::before {
+  background: radial-gradient(circle, rgba(184, 144, 59, 0.4) 0%, transparent 70%);
+}
+
+@media (max-width: 768px) {
+  .editorial-separator-wrap {
+    padding: 2.5rem 1rem;
+  }
+  .telemetry-coords {
+    display: none;
+  }
+  .separator-container {
+    gap: 1rem;
+  }
+}

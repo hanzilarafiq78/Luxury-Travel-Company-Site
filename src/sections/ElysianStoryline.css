@@ -1,0 +1,218 @@
+/* ═══════════════════════════════════════════════════════════════
+   ELYSIAN — Quiet Luxury Storyline Styles
+   Award-Winning Blanket Overlay Transition • Scroll-Locked Editorial Flow
+   ═══════════════════════════════════════════════════════════════ */
+
+.elysian-storyline-wrapper {
+  position: relative;
+  width: 100%;
+  height: 1000vh;
+  background-color: #080b12;
+}
+
+/* ── Viewport locked on screen via sticky during storyline ── */
+.elysian-pinned-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #080b12;
+  z-index: 1;
+}
+
+/* ── Absolute Overlaying Chapter Panels (Blanket Stack) ── */
+.chapter-panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: clamp(4rem, 8vh, 8rem) clamp(1.5rem, 5vw, 6rem);
+  transform-origin: center center;
+  will-change: transform, opacity;
+  background-color: #080b12;
+}
+
+/* ── Elevated Blanket Depth: Soft deep shadow and hairline casting over the previous panel ── */
+.chapter-panel-2,
+.chapter-panel-3,
+.chapter-panel-4 {
+  box-shadow: 0 -35px 90px rgba(0, 0, 0, 0.92), 0 -10px 30px rgba(0, 0, 0, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Full-Bleed Cinematic Backdrop ── */
+.chapter-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  background-color: #080b12;
+}
+
+.chapter-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.chapter-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(8, 11, 18, 0.22) 0%, rgba(8, 11, 18, 0.7) 100%),
+    linear-gradient(180deg, rgba(8, 11, 18, 0.4) 0%, transparent 25%, transparent 75%, rgba(8, 11, 18, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* ── Center-Aligned Editorial Content ── */
+.chapter-content {
+  position: relative;
+  z-index: 5;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Eyebrow */
+.chapter-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-luxury);
+  color: var(--color-accent-400);
+  text-transform: uppercase;
+  margin-bottom: var(--space-5);
+  font-weight: var(--weight-medium);
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-accent-400);
+}
+
+/* Heading */
+.chapter-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 2.2rem + 3vw, 4.6rem);
+  font-weight: var(--weight-light);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--color-white);
+  margin-bottom: var(--space-6);
+  text-align: center;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.chapter-heading .luxury-gradient-text {
+  color: var(--color-accent-300);
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+/* Description */
+.chapter-description {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 0.85rem + 0.3vw, 1.15rem);
+  font-weight: var(--weight-light);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: var(--leading-relaxed);
+  margin: 0 auto var(--space-8);
+  max-width: 600px;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Refined Minimalist Text Link */
+.chapter-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: 0.75rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent-300);
+  text-decoration: none;
+  padding-bottom: 6px;
+  margin: 0 auto;
+  transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              gap 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              letter-spacing 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chapter-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent-300);
+  transform: scaleX(0.7);
+  transform-origin: center;
+  opacity: 0.4;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.45s ease,
+              background-color 0.45s ease;
+}
+
+.chapter-link:hover {
+  color: #ffffff;
+  letter-spacing: 0.28em;
+  gap: var(--space-4);
+}
+
+.chapter-link:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+  background-color: #ffffff;
+}
+
+.link-arrow {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chapter-link:hover .link-arrow {
+  transform: translateX(6px);
+}
+
+/* ── Responsive Adaptations ── */
+@media (max-width: 768px) {
+  .chapter-panel {
+    padding: 5rem 1.5rem;
+  }
+
+  .chapter-heading {
+    font-size: 2.25rem;
+  }
+
+  .chapter-description {
+    font-size: 0.9375rem;
+  }
+}

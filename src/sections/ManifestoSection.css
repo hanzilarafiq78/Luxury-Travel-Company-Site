@@ -1,0 +1,273 @@
+/* ═══════════════════════════════════════════════════════════════
+   ELYSIAN — Manifesto Section Styles
+   Exact Match to Master Reference (Editorial & Dual Overlapping Photos)
+   ═══════════════════════════════════════════════════════════════ */
+
+.manifesto-exact-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: clamp(6rem, 10vh, 10rem) clamp(2rem, 5vw, 6rem);
+  box-sizing: border-box;
+  background-color: #f7f3e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  color: #2c2724;
+}
+
+.manifesto-exact-container {
+  position: relative;
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 7rem);
+}
+
+/* ── LEFT COLUMN: EDITORIAL STATEMENT ── */
+.manifesto-editorial-col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+  padding-left: clamp(1rem, 2vw, 2.5rem);
+  border-left: 1px solid rgba(178, 137, 91, 0.4);
+}
+
+/* Eyebrow with horizontal hairline */
+.manifesto-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.manifesto-eyebrow-text {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #352f31;
+}
+
+.manifesto-eyebrow-rule {
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background-color: rgba(178, 137, 91, 0.45);
+}
+
+/* Quote Title */
+.manifesto-quote-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 clamp(1.5rem, 3vh, 2.25rem) 0;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.quote-line-dark {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(2.8rem, 4.4vw, 5.2rem);
+  font-weight: 400;
+  color: #2c2724;
+}
+
+.quote-line-gold {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(3rem, 4.8vw, 5.6rem);
+  font-style: italic;
+  font-weight: 400;
+  color: #b2895b;
+  margin-top: 0.25rem;
+}
+
+/* Minimal Editorial Lead Paragraph */
+.manifesto-lead-paragraph {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: #5c554e;
+  max-width: 480px;
+  margin: 0 0 clamp(2.25rem, 4vh, 3.25rem) 0;
+  letter-spacing: -0.005em;
+}
+
+/* CTA Row */
+.manifesto-cta-row {
+  display: flex;
+  align-items: center;
+}
+
+.manifesto-explore-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cta-hairline {
+  display: inline-block;
+  width: 48px;
+  height: 1px;
+  background-color: #b2895b;
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
+}
+
+.manifesto-explore-cta:hover .cta-hairline {
+  width: 72px;
+  background-color: #987e32;
+}
+
+.cta-label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #2c2724;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), letter-spacing 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.manifesto-explore-cta:hover .cta-label {
+  color: #b2895b;
+  letter-spacing: 0.28em;
+}
+
+.cta-arrow {
+  font-size: 0.875rem;
+  color: #b2895b;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.manifesto-explore-cta:hover .cta-arrow {
+  transform: translateX(6px);
+}
+
+/* ── RIGHT COLUMN: OVERLAPPING DUAL-PHOTO COMPOSITION ── */
+.manifesto-visual-col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 620px;
+}
+
+/* Photos Stage Container */
+.manifesto-photos-stage {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: 580px;
+  z-index: 1;
+}
+
+/* Base Photo Wrapper */
+.manifesto-photo-wrap {
+  overflow: hidden;
+  border-radius: 2px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.manifesto-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.manifesto-photo-wrap:hover .manifesto-photo-img {
+  transform: scale(1.04);
+}
+
+/* Photo 1: Vertical Ocean Cliff (Top Anchor) */
+.photo-cliff-portrait {
+  position: absolute;
+  top: 0;
+  left: clamp(10px, 3vw, 40px);
+  width: clamp(250px, 20vw, 310px);
+  height: clamp(430px, 33vw, 530px);
+  z-index: 1;
+  box-shadow: 0 20px 45px rgba(44, 39, 36, 0.12);
+}
+
+.photo-cliff-portrait:hover {
+  box-shadow: 0 30px 65px rgba(44, 39, 36, 0.22);
+}
+
+/* Photo 2: Horizontal Aegean Sunset (Placed at Bottom of Cliff Image) */
+.photo-sunset-landscape {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 0;
+  width: clamp(320px, 27vw, 430px);
+  height: clamp(200px, 17vw, 275px);
+  z-index: 2;
+  box-shadow: 0 25px 60px rgba(44, 39, 36, 0.2);
+}
+
+.photo-sunset-landscape:hover {
+  box-shadow: 0 35px 80px rgba(44, 39, 36, 0.3);
+}
+
+/* ── RESPONSIVE ADAPTATION ── */
+@media (max-width: 1024px) {
+  .manifesto-exact-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .manifesto-editorial-col {
+    padding-left: 1.5rem;
+  }
+  .manifesto-visual-col {
+    min-height: 520px;
+  }
+  .manifesto-photos-stage {
+    height: 500px;
+    max-width: 500px;
+  }
+  .photo-cliff-portrait {
+    width: 250px;
+    height: 410px;
+    left: 10px;
+    top: 0;
+  }
+  .photo-sunset-landscape {
+    width: 330px;
+    height: 210px;
+    right: 0;
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .manifesto-exact-section {
+    padding: 5rem 1.5rem;
+  }
+  .manifesto-photos-stage {
+    height: 400px;
+    width: 100%;
+  }
+  .photo-cliff-portrait {
+    width: 190px;
+    height: 320px;
+    left: 0;
+    top: 0;
+  }
+  .photo-sunset-landscape {
+    width: 250px;
+    height: 165px;
+    right: 0;
+    bottom: 0.5rem;
+  }
+}

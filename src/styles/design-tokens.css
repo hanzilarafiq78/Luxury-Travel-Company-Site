@@ -1,0 +1,198 @@
+/* ═══════════════════════════════════════════════════════════════
+   AURELIA — Luxury Travel Platform Design Tokens
+   Award-winning design system foundation
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Color Palette: Luxury Travel ── */
+  
+  /* Primary — Deep Ocean Navy */
+  --color-primary-900: #0a0e1a;
+  --color-primary-800: #0f1629;
+  --color-primary-700: #151e38;
+  --color-primary-600: #1c2847;
+  --color-primary-500: #243256;
+  --color-primary-400: #3a4d7a;
+  --color-primary-300: #56709e;
+  --color-primary-200: #8a9fc4;
+  --color-primary-100: #c4cfea;
+  
+  /* Accent — Champagne Gold */
+  --color-accent-900: #5c4a1e;
+  --color-accent-800: #7a6428;
+  --color-accent-700: #987e32;
+  --color-accent-600: #b6983c;
+  --color-accent-500: #d4b24a;
+  --color-accent-400: #e0c56e;
+  --color-accent-300: #ebd892;
+  --color-accent-200: #f3e8b8;
+  --color-accent-100: #faf4de;
+  
+  /* Warm — Sunset / Terracotta */
+  --color-warm-900: #4a1a0a;
+  --color-warm-800: #6b2610;
+  --color-warm-700: #8c3216;
+  --color-warm-600: #ad3e1c;
+  --color-warm-500: #ce4a22;
+  --color-warm-400: #d86e4e;
+  --color-warm-300: #e2927a;
+  --color-warm-200: #ecb6a6;
+  --color-warm-100: #f6dad2;
+  
+  /* Cool — Caribbean Aqua */
+  --color-cool-900: #0a3a3a;
+  --color-cool-800: #104e4e;
+  --color-cool-700: #166262;
+  --color-cool-600: #1c7676;
+  --color-cool-500: #228a8a;
+  --color-cool-400: #4ea1a1;
+  --color-cool-300: #7ab8b8;
+  --color-cool-200: #a6cfcf;
+  --color-cool-100: #d2e6e6;
+  
+  /* Neutrals */
+  --color-neutral-950: #050507;
+  --color-neutral-900: #0a0a0f;
+  --color-neutral-800: #14141f;
+
+  /* ── Bright Luxury Palette: Sun-Drenched Alabaster & Warm Ivory ── */
+  --color-sun-ivory: #faf8f5;
+  --color-sun-alabaster: #f5f1e8;
+  --color-sun-cream: #ece6da;
+  --color-sun-sand: #e2dac9;
+  --color-text-espresso: #1a1714;
+  --color-text-dark-bronze: #2c251d;
+  --color-text-warm-muted: #5e564a;
+  --color-text-soft-sand: #8e8372;
+  --color-gold-deep: #b8903b;
+  --color-gold-warm: #9e7b2f;
+  --color-sand-hairline: rgba(184, 144, 59, 0.22);
+  --color-sand-hairline-subtle: rgba(44, 37, 29, 0.09);
+  --color-neutral-700: #1e1e2e;
+  --color-neutral-600: #2d2d42;
+  --color-neutral-500: #4a4a66;
+  --color-neutral-400: #6b6b8a;
+  --color-neutral-300: #9494ad;
+  --color-neutral-200: #bdbdd1;
+  --color-neutral-100: #e6e6f0;
+  --color-neutral-50: #f5f5fa;
+  --color-white: #ffffff;
+  
+  /* ── Typography ── */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-accent: 'Italiana', serif;
+  
+  /* Type Scale — Modular (1.333 — Perfect Fourth) */
+  --text-xs: clamp(0.64rem, 0.58rem + 0.25vw, 0.75rem);
+  --text-sm: clamp(0.8rem, 0.74rem + 0.25vw, 0.9rem);
+  --text-base: clamp(1rem, 0.93rem + 0.3vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.35rem);
+  --text-xl: clamp(1.33rem, 1.15rem + 0.75vw, 1.8rem);
+  --text-2xl: clamp(1.77rem, 1.5rem + 1.1vw, 2.4rem);
+  --text-3xl: clamp(2.36rem, 1.9rem + 1.8vw, 3.2rem);
+  --text-4xl: clamp(3.15rem, 2.4rem + 3vw, 4.8rem);
+  --text-5xl: clamp(4.2rem, 3rem + 4.8vw, 7.2rem);
+  --text-hero: clamp(5rem, 3.5rem + 6vw, 10rem);
+  
+  /* Font Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+  --tracking-luxury: 0.3em;
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  
+  /* ── Spacing System (8px base) ── */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.5rem;    /* 24px */
+  --space-6: 2rem;      /* 32px */
+  --space-7: 2.5rem;    /* 40px */
+  --space-8: 3rem;      /* 48px */
+  --space-10: 4rem;     /* 64px */
+  --space-12: 5rem;     /* 80px */
+  --space-16: 6rem;     /* 96px */
+  --space-20: 8rem;     /* 128px */
+  --space-24: 10rem;    /* 160px */
+  --space-section: clamp(6rem, 4rem + 8vw, 12rem);
+  
+  /* ── Layout ── */
+  --container-max: 1440px;
+  --container-wide: 1200px;
+  --container-content: 960px;
+  --container-narrow: 720px;
+  --container-text: 640px;
+  --grid-gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  
+  /* ── Borders & Radius ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+  --border-thin: 1px;
+  --border-medium: 2px;
+  
+  /* ── Shadows — Luxury elevation ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.2);
+  --shadow-glow-gold: 0 0 40px rgba(212, 178, 74, 0.15);
+  --shadow-glow-cool: 0 0 40px rgba(34, 138, 138, 0.12);
+  --shadow-luxury: 0 24px 80px rgba(10, 14, 26, 0.4);
+  
+  /* ── Transitions — Buttery smooth ── */
+  --ease-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+  --duration-slower: 800ms;
+  --duration-cinematic: 1200ms;
+  
+  /* ── Z-Index Scale ── */
+  --z-base: 0;
+  --z-above: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-loader: 900;
+  --z-max: 9999;
+  
+  /* ── Glassmorphism ── */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 20px;
+  --glass-bg-dark: rgba(10, 14, 26, 0.6);
+  --glass-border-dark: rgba(255, 255, 255, 0.06);
+}
+

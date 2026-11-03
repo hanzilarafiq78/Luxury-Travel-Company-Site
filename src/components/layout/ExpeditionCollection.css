@@ -1,0 +1,440 @@
+/* ═══════════════════════════════════════════════════════════════
+   ELYSIAN — Curated Sanctuaries Collection Styles
+   Minimalist High-End Indexed Layout • Award-Winning Architectural Flow
+   ═══════════════════════════════════════════════════════════════ */
+
+.sanctuaries-dark-section {
+  position: relative;
+  z-index: 10;
+  padding: clamp(6.5rem, 10vh, 9.5rem) clamp(1.75rem, 5vw, 6rem);
+  background-color: #080b12;
+  background: radial-gradient(circle at 50% 10%, #111728 0%, #080b12 75%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.expedition-collection {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 20;
+  color: #ffffff;
+}
+
+/* ── Top Editorial Header ── */
+.expedition-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(3.5rem, 6vh, 5.5rem);
+}
+
+.expedition-tag-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.expedition-tag-line {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: #d4b24a;
+  opacity: 0.8;
+}
+
+.expedition-tag {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  letter-spacing: 0.28em;
+  color: #d4b24a;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.expedition-title {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(2.5rem, 4.2vw, 4.4rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.expedition-title .luxury-gradient-text {
+  color: #d4b24a;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+.expedition-subtitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  font-weight: 400;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ── Minimalist High-End Indexed List ── */
+.sanctuaries-index-wrapper {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sanctuary-index-block {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.4s ease;
+}
+
+.sanctuary-index-block.is-active {
+  border-top-color: rgba(212, 178, 74, 0.45);
+}
+
+/* ── Collapsed Indexed Row ── */
+.sanctuary-collapsed-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1.4rem, 2.5vh, 2rem) 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  transition: 
+    padding-left 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s ease;
+}
+
+.collapsed-left {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1.5rem, 3.2vw, 3.5rem);
+  flex-wrap: wrap;
+}
+
+.collapsed-index {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #d4b24a;
+  min-width: 1.85rem;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.collapsed-title {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(1.2rem, 1.6vw, 1.65rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collapsed-region {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+  font-weight: 500;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sanctuary-collapsed-row:hover .collapsed-title,
+.sanctuary-index-block.is-active .collapsed-title {
+  color: #f7eedb;
+}
+
+.sanctuary-collapsed-row:hover .collapsed-region,
+.sanctuary-index-block.is-active .collapsed-region {
+  color: rgba(212, 178, 74, 0.85);
+}
+
+.sanctuary-collapsed-row:hover .sanctuary-toggle-btn {
+  border-color: #d4b24a;
+  color: #d4b24a;
+  background: rgba(212, 178, 74, 0.08);
+  transform: scale(1.08);
+}
+
+/* ── Minimalist Toggle Button (+ / -) ── */
+.sanctuary-toggle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: all 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+  padding: 0;
+}
+
+.toggle-glyph {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1;
+  display: inline-block;
+  transform-origin: center center;
+  transition: transform 0.95s cubic-bezier(0.65, 0, 0.35, 1), color 0.6s ease;
+}
+
+.sanctuary-index-block.is-active .toggle-glyph {
+  transform: rotate(45deg);
+  color: #d4b24a;
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s ease;
+}
+
+.sanctuary-index-block.is-active .sanctuary-toggle-btn {
+  border-color: #d4b24a;
+  background: rgba(212, 178, 74, 0.14);
+}
+
+/* ── Expandable Details Drawer (Slow, Ultra-Smooth, Award-Winning Open & Close) ── */
+.sanctuary-expandable-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  /* Closing transition: unhurried, gentle, award-winning glide without abrupt snapping */
+  transition: grid-template-rows 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  overflow: hidden;
+}
+
+.sanctuary-index-block.is-active .sanctuary-expandable-drawer {
+  grid-template-rows: 1fr;
+  /* Opening transition: stately, silky expansion */
+  transition: grid-template-rows 1.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sanctuary-drawer-inner {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  padding: 0.75rem 0.5rem clamp(2.5rem, 4.5vh, 3.5rem);
+  /* Closing transition for inner content: softly dims and sinks in tandem with drawer */
+  transition: 
+    opacity 0.7s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.sanctuary-index-block.is-active .sanctuary-drawer-inner {
+  opacity: 1;
+  transform: translateY(0);
+  /* Opening transition: gentle lift after drawer begins unfolding */
+  transition: 
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.16s,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.16s;
+}
+
+.expanded-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 4.5vw, 5rem);
+  align-items: center;
+}
+
+/* Media Wrap */
+.expanded-media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.5;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #111522;
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
+}
+
+.expanded-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expanded-media-wrap:hover .expanded-image {
+  transform: scale(1.035);
+}
+
+.expanded-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: rgba(8, 11, 18, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #f3e8b8;
+  padding: 6px 14px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid rgba(212, 178, 74, 0.3);
+}
+
+/* Expanded Content */
+.expanded-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.expanded-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.expanded-breadcrumb {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #d4b24a;
+  font-weight: 600;
+}
+
+.expanded-title {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(2rem, 2.6vw, 2.85rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.015em;
+}
+
+.expanded-location-sub {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(250, 244, 222, 0.85);
+  margin: 0 0 1.5rem;
+}
+
+.expanded-description {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.92rem, 1vw, 1.02rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0 0 1.85rem;
+  max-width: 520px;
+}
+
+/* Minimalist Meta Bar */
+.expanded-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 1.15rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 2.25rem;
+}
+
+.meta-spec {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spec-label {
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 600;
+}
+
+.spec-val {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.15rem;
+  color: #f5eed6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.spec-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Action Button */
+.expanded-action-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.expanded-reserve-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 2rem;
+  background: rgba(212, 178, 74, 0.1);
+  color: #f3e8b8;
+  border: 1px solid rgba(212, 178, 74, 0.4);
+  border-radius: 2px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expanded-reserve-btn:hover {
+  background: #d4b24a;
+  color: #080b12;
+  border-color: #d4b24a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 178, 74, 0.35);
+}
+
+.reserve-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.expanded-reserve-btn:hover .reserve-arrow {
+  transform: translateX(4px);
+}
+
+/* ── Responsive Adaptations ── */
+@media (max-width: 960px) {
+  .expanded-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .expanded-media-wrap {
+    aspect-ratio: 16 / 9;
+  }
+
+  .collapsed-left {
+    gap: 1rem;
+  }
+
+  .collapsed-region {
+    display: block;
+    width: 100%;
+    margin-left: 2.85rem;
+  }
+}
