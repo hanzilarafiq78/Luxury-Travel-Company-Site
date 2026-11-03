@@ -175,7 +175,7 @@
   overflow: hidden;
   border-radius: 2px;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .manifesto-photo-img {
@@ -226,22 +226,27 @@
     grid-template-columns: 1fr;
     gap: 4rem;
   }
+
   .manifesto-editorial-col {
     padding-left: 1.5rem;
   }
+
   .manifesto-visual-col {
     min-height: 520px;
   }
+
   .manifesto-photos-stage {
     height: 500px;
     max-width: 500px;
   }
+
   .photo-cliff-portrait {
     width: 250px;
     height: 410px;
     left: 10px;
     top: 0;
   }
+
   .photo-sunset-landscape {
     width: 330px;
     height: 210px;
@@ -254,16 +259,19 @@
   .manifesto-exact-section {
     padding: 5rem 1.5rem;
   }
+
   .manifesto-photos-stage {
     height: 380px;
     width: 100%;
   }
+
   .photo-cliff-portrait {
     width: 180px;
     height: 300px;
     left: 0;
     top: 0;
   }
+
   .photo-sunset-landscape {
     width: 240px;
     height: 160px;
@@ -276,35 +284,44 @@
   .manifesto-exact-section {
     padding: 4.5rem 1.25rem;
   }
+
   .manifesto-editorial-col {
     padding-left: 1rem;
   }
+
   .manifesto-eyebrow-row {
     gap: 1rem;
     margin-bottom: 1.75rem;
   }
+
   .manifesto-eyebrow-rule {
     max-width: 60px;
   }
+
   .quote-line-dark {
     font-size: clamp(1.95rem, 8vw, 2.7rem);
   }
+
   .quote-line-gold {
     font-size: clamp(2.15rem, 8.5vw, 2.9rem);
   }
+
   .manifesto-lead-paragraph {
     font-size: 0.9375rem;
     line-height: 1.7;
     margin-bottom: 2rem;
   }
+
   .manifesto-photos-stage {
     height: 320px;
     max-width: 100%;
   }
+
   .photo-cliff-portrait {
     width: 150px;
     height: 250px;
   }
+
   .photo-sunset-landscape {
     width: 195px;
     height: 130px;
